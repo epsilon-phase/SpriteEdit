@@ -11,7 +11,7 @@ namespace SpriteEdit2
     [Serializable]
     class Frame
     {
-        private Color[,] contents;
+        private readonly Color[,] contents;
         
         public Color[,] Contents { get { return contents; } }
 
@@ -41,6 +41,7 @@ namespace SpriteEdit2
 
         public Frame(Frame e)
         {
+            SetManually = false;
             contents=new Color[e.Width,e.Height];
             foreach (var i in Utility.Range(0, contents.GetLength(0), 1))
                 foreach (var j in Utility.Range(0, contents.GetLength(1), 1))
